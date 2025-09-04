@@ -1,0 +1,338 @@
+/* --- Global Styles & Retro Theme --- */
+body {
+  font-family: "VT323", monospace;
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+body::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  border: 2px solid #00ff41;
+  padding: 25px;
+  box-shadow: 0 0 20px #00ff41, inset 0 0 20px rgba(0, 255, 65, 0.3);
+  background: rgba(0, 10, 0, 0.2);
+}
+
+/* --- Animations --- */
+@keyframes flicker {
+  0% {
+    opacity: 0.4;
+  }
+  5% {
+    opacity: 0.8;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  background: #00ff41;
+  width: 15px;
+  height: 1.2em;
+  animation: blink 1s step-end infinite;
+  margin-left: 5px;
+  box-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41;
+}
+
+/* --- Header & Profile --- */
+.header-grid {
+  display: grid;
+  /* Updated grid to accommodate cactus */
+  grid-template-columns: 150px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #00ff41;
+  box-shadow: 0 0 15px #00ff41;
+  object-fit: cover;
+}
+
+/* New Cactus Art styles */
+.cactus-art {
+  font-family: monospace;
+  color: #00ff41;
+  text-shadow: 0 0 5px #00ff41;
+  font-size: 12px;
+  line-height: 1;
+}
+.cactus-art pre {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+.subtitle {
+  color: #cccccc;
+  text-shadow: none;
+  margin: 5px 0 0 0;
+}
+.status-line {
+  color: #33ccff;
+  text-shadow: 0 0 5px #33ccff;
+  margin: 5px 0 0 0;
+}
+
+/* --- Top Grid Layout --- */
+.top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* --- Terminal Window Sections --- */
+.terminal-window {
+  border: 1px solid #00ff41;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.terminal-window:hover {
+  border-color: #33ccff;
+  box-shadow: inset 0 0 15px rgba(51, 204, 255, 0.4),
+    0 0 15px rgba(51, 204, 255, 0.4);
+}
+
+.terminal-window h2 {
+  font-size: 1.8em;
+  margin-top: 0;
+  border-bottom: 1px solid #00ff41;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* --- Specific Section Styling --- */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 10px;
+}
+ul li {
+  margin-bottom: 12px;
+}
+
+.job-entry,
+.project-entry {
+  margin-bottom: 25px;
+}
+.job-entry:last-child,
+.project-entry:last-child {
+  margin-bottom: 5px;
+}
+
+.job-entry h3,
+.project-entry h3 {
+  margin: 0 0 5px 0;
+  color: #ffffff;
+  font-size: 1.3em;
+}
+
+.job-entry .meta {
+  color: #aaaaaa;
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-shadow: none;
+}
+
+.paper {
+  border-left: 3px solid #00ff41;
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+.paper:last-child {
+  margin-bottom: 0;
+}
+.paper h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2em;
+}
+
+.paper .publication-venue {
+  color: #aaaaaa;
+  font-style: italic;
+  margin: 0 0 10px 0;
+}
+.paper .status {
+  color: #ff33cc;
+  text-shadow: 0 0 5px #ff33cc;
+}
+
+a {
+  color: #33ccff;
+  text-decoration: none;
+  text-shadow: 0 0 5px #33ccff;
+  transition: all 0.2s ease-in-out;
+}
+a:hover {
+  background-color: #33ccff;
+  color: #0d0d0d;
+  text-shadow: none;
+  padding: 2px 5px;
+}
+
+#contact .links a {
+  margin-right: 20px;
+  font-size: 1.2em;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #00ff41;
+  font-size: 0.9em;
+  text-shadow: 0 0 5px #00ff41;
+}
+footer a {
+  color: #00ff41;
+  text-shadow: 0 0 5px #00ff41;
+}
+footer a:hover {
+  background-color: #00ff41;
+  color: #0d0d0d;
+  text-shadow: none;
+  padding: 2px 5px;
+}
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .top-grid {
+    grid-template-columns: 1fr;
+  }
+  .header-grid {
+    grid-template-columns: 100px 1fr auto;
+    gap: 15px;
+  }
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+  h1 {
+    font-size: 2.5em;
+  }
+  .terminal-window {
+    padding: 15px;
+  }
+  .terminal-window h2 {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  .subtitle,
+  .status-line {
+    font-size: 0.9em;
+  }
+  .terminal-window h2 {
+    font-size: 1.3em;
+  }
+}
+/* --- End of Styles --- */
+
+/* --- Additional Enhancements --- */
+/* Add subtle hover effects to list items */
+ul li:hover {
+  background-color: rgba(0, 255, 65, 0.1);
+  padding-left: 5px;
+  transition: all 0.2s ease-in-out;
+}
+/* Add focus styles for accessibility */
+a:focus {
+  outline: 2px dashed #33ccff;
+  outline-offset: 2px;
+}
+button:focus {
+  outline: 2px dashed #33ccff;
+  outline-offset: 2px;
+}
+input:focus,
+textarea:focus {
+  border-color: #33ccff;
+  box-shadow: 0 0 5px #33ccff;
+  outline: none;
+}
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+/* End of Additional Enhancements */
+/* --- End of Styles --- */
+/* --- Additional Enhancements --- */
+/* Add subtle hover effects to list items */
+ul li:hover {
+  background-color: rgba(0, 255, 65, 0.1);
+  padding-left: 5px;
+  transition: all 0.2s ease-in-out;
+}
